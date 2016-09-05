@@ -510,10 +510,13 @@ function updatePositions() {
 
   var scrollPosition = $(window).scrollTop();
   var currentPhase = Math.sin(scrollPosition / 1250);
+  var basicLeftList = [];
+  for (var i = 0; i < items.length; i += 1) {
+    basicLeftList.push(items[i].basicLeft);
+  }
 
   for (var i = 0; i < items.length; i += 1) {
-    var item = items[i];
-    item.style.left = item.basicLeft + currentPhase*100 + 'px';
+    items[i].style.left = basicLeftList[i] + currentPhase*100 + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
