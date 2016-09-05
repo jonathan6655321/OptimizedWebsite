@@ -508,7 +508,7 @@ function updatePositions() {
   //   newLeftCoordinates.push(items[i].basicLeft + 100 * currentPhase + 'px');
   // }
 
-  var scrollPosition = window.scrollTop();
+  var scrollPosition = body.scrollTop();
 
   for (var i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + scrollPosition*100 + 'px';
