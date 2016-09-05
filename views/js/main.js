@@ -502,6 +502,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  var itemsLength = items.length;
   // var newLeftCoordinates = [];
   // for (var i = 0; i < items.length; i++) {
   //   var currentPhase = Math.sin((document.body.scrollTop / 1250) + (i % 5))
@@ -511,7 +512,7 @@ function updatePositions() {
   var scrollPosition = $(window).scrollTop();
   var currentPhase = Math.sin(scrollPosition / 1250);
 
-  for (var i = 0; i < 20; i += 1) {
+  for (var i = 0; i < itemsLength; i += 1) {
     var item = items[i];
     item.style.left = item.basicLeft + currentPhase*100 + 'px';
   }
@@ -533,7 +534,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 20; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
