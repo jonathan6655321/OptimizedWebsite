@@ -503,7 +503,7 @@ function updatePositions() {
   var scrollPosition = $(window).scrollTop();
   var currentPhaseList = [];
   for (i = 0; i < 5; i++) {
-    currentPhaseList.push(Math.sin((scrollPosition + i*5) / 1250) );
+    currentPhaseList.push(Math.sin((scrollPosition*Math.pow(-1,i)) / 1250)  + i*5);
     console.log(currentPhaseList);
   }
 
