@@ -443,7 +443,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer"); //an array of the pizza elements to be iterated through
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer"); //an array of the pizza elements to be iterated through
     var newWidth = String(determinePercentage(size)) + "%"; // the new percentage of the viewport to be asssigned to the elements.
 
     for (var i = 0; i < randomPizzas.length; i++) {
@@ -463,8 +463,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -496,10 +496,10 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var itemsLength = items.length;
 
-  // determing the phase for the pizzas, relative to scrolling position. 
+  // determing the phase for the pizzas, relative to scrolling position.
   var scrollPosition = $(window).scrollTop();
   var currentPhase = Math.sin(scrollPosition / 1250);
 
