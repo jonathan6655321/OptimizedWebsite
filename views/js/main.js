@@ -501,11 +501,14 @@ function updatePositions() {
 
   // determing the phase for the pizzas, relative to scrolling position.
   var scrollPosition = $(window).scrollTop();
-  var currentPhase = Math.sin(scrollPosition / 1250);
+  var currentPhaseList = [];
+  for (i = 0; i < 5; i++) {
+    currentPhaseList.push(Math.sin(scrollPosition / 1250) + i
+  }
 
   for (var i = 0; i < itemsLength; i += 1) {
     var item = items[i];
-    item.style.left = item.basicLeft + currentPhase*100 + 'px';
+    item.style.left = item.basicLeft + currentPhaseList[i%5]*100 + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
