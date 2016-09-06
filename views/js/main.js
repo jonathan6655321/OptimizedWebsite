@@ -508,7 +508,7 @@ function updatePositions() {
 
   for (var i = 0; i < itemsLength; i += 1) {
     var item = items[i];
-    item.style.left = item.basicLeft + currentPhaseList[i%5]*100/i + 'px';
+    item.style.left = item.basicLeft + currentPhaseList[i%5]*100 + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
