@@ -504,11 +504,15 @@ function updatePositions() {
   var currentPhaseList = [];
   for (i = 0; i < 5; i++) {
     currentPhaseList.push(Math.sin((scrollPosition + i*5) / 1250) );
+    console.log(currentPhaseList);
   }
 
   for (var i = 0; i < itemsLength; i += 1) {
     var item = items[i];
+    console.log("item",i, items[i].style.left);
     item.style.left = item.basicLeft + currentPhaseList[i%5]*100 + 'px';
+    console.log(currentPhaseList[i%5]*100);
+    console.log("item",i, items[i].style.left);
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
