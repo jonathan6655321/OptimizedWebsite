@@ -498,12 +498,8 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   var itemsLength = items.length;
-  // var newLeftCoordinates = [];
-  // for (var i = 0; i < items.length; i++) {
-  //   var currentPhase = Math.sin((document.body.scrollTop / 1250) + (i % 5))
-  //   newLeftCoordinates.push(items[i].basicLeft + 100 * currentPhase + 'px');
-  // }
 
+  // determing the phase for the pizzas, relative to scrolling position. 
   var scrollPosition = $(window).scrollTop();
   var currentPhase = Math.sin(scrollPosition / 1250);
 

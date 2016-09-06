@@ -32,7 +32,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 
@@ -53,3 +53,34 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+
+# My Addition
+
+## How to run the app:
+
+Choose:
+* Download the project and run index.html from your computer
+* or, Host the project and run it on the web.
+
+## Optimization of index.html:
+
+index.html was brought to a pagespeed of 95/100 on mobile and 100/100 on desktop.
+
+The means to acheive that:
+* Resizing and compressing the images.
+* Optimizing CSS delivery by including the CSS as an internal style sheet.
+* Making the google font request asynchronous via the <a href = "https://www.lockedowndesign.com/load-google-fonts-asynchronously-for-page-speed/"> webfonts api </a>.
+* Making the print styles load asynchronously via media query.
+
+
+## Optimization of Moving pizzas:
+see - updatePositions() views/js/main.js
+
+* Avoiding repeated FSL by moving the calculation of the phase, which requests scroll position (a layout trigger), out of the for loop.
+
+* Reducing the number of affected elements by reducing the number of pizzas generated to 20. Even when there were 200, only 15 were displayed.
+In - views/js/main.js, search for: "Generates the sliding pizzas when the page loads." to see where the change was made.
+
+## Optimization of Resized Pizzas:
+* avoiding FSL by refactoring the determineDx() function to return a percentage value instead of a calculation which triggers layout by requesting each elements width. The functions name was changed to determinePercentage().
