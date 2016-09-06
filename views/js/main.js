@@ -454,7 +454,7 @@ var resizePizzas = function(size) {
     // var dx = determineDx(randomPizzas[0], size); // all pizzas should have the same size, sampling first.
     // var newwidth = (randomPizzas[0].offsetWidth + dx) + 'px';
 
-    var newWidth = determineDx(randomPizzas[0], size) + '%';
+    var newWidth = String(determineDx(randomPizzas[0], size)) + "%";
 
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth;
